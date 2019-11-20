@@ -1,5 +1,6 @@
 var Flights = require('../models/flight')
 var Ticket = require('../models/ticket')
+var moment = require('moment')
 
 module.exports = {
     new: newFlights,
@@ -39,7 +40,12 @@ function show(req, res){
         console.log(flight)
             Ticket.find({flight: flight._id}, function(err, tickets){
                 if(err){res.redirect('flights')}
-                res.render('flights/show', {title:'', flight, tickets})
+                res.render('flights/show', {
+                    title:'', 
+                    flight, 
+                    tickets,
+                    moment: moment
+                })
             })
     })
 }

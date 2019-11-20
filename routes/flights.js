@@ -5,6 +5,6 @@ console.log('router')
 /* GET users listing. */
 router.get('/new', flightCtrl.new);
 router.post('/', flightCtrl.create)
-router.get('/show/:id', flightCtrl.show)
+router.get('/:id', flightCtrl.show)
 
 module.exports = router;

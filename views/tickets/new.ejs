@@ -1,9 +1,15 @@
 <<%- include('../partials/header') %>
     <form id="add-ticket-form" action="/flights/<%=flight._id%>/tickets" method = "POST">
-        <label>Seat</label>
-        <input type="text" name="seat" >
-        <label>Price</label>
-        <input type="text" name="price">
-        <input type="submit" value = "Add Ticket">
+        <div class="form-group">
+            <label>Seat</label>
+            <input type="text" name="seat" >
+        </div>
+        <div class="form-group">
+            <label>Price</label>
+            <input type="text" name="price">
+        </div>
+        <div class="form-group text-center">
+            <input class="btn-info" type="submit" value = "Add Ticket">
+        </div>
     </form>
 <%- include('../partials/footer') %>
