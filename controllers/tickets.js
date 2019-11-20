@@ -24,7 +24,7 @@ function create(req, res){
         console.log(req.params.id)
         Ticket.create(req.body, function(err, ticket){
             console.log(req.body)
-            res.redirect(`flights/${req.params.id}`)
+            res.redirect(`/flights/${req.params.id}`)
     })
     })
 }
