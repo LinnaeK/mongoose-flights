@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <% if (flights){%>
+    <table>
+      <% flights.forEach(function(f) { %>
+        <tr>
+          <td><%=f.airline%></td>
+          <td><%=f.flightNo%></td>
+          <td><%=f.departs%></td>
+          <td><a href="/flights/<%=f._id%>">DETAILS</a></td>
+        </tr>
+      <%})%>
+    </table>
+    <%}else{%>
+      <h5>No Flight Information Yet</h5>
+      <%}%>
+      <a href="flights/new"><button>Add Flight</button></a>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flight Information</title>
+</head>
+<body>
+    <section id = "show-flight">Flight Information:</section>
+        <div>Airline:</div>
+        <div><%=flight.airline%></div>
+        <div>FlightNo:</div>
+        <div><%=flight.flightNo%></div>
+        <div>Departs:</div>
+        <div><%=flight.departs%></div>
+        <div>Departure Airport:</div>
+        <div><%=flight.airport%></div>
+        <%if (flight.destinations.length){%>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Destination</th>
+                        <th>Arrival Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%flight.destinations.forEach(function(f){%>
+                        <tr>
+                            <td><%=f.airport%></td>
+                            <td><%=f.arrival.toLocaleDateString()%></td>
+                        </tr>
+                    <%})%>
+                </tbody>
+            </table>
+            <%}%>
+
+            <%if(tickets.airport) {%>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Seat</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%tickets.forEach(function(t){%>
+                        <tr>
+                            <%=t.seat%>
+                        </tr>
+                        <tr>
+                            <%=t.price%>
+                        </tr>
+                        <%})%>
+                    </tbody>
+                </table>
+                <%}%>
+                <a href= "<%=flight._id%>/tickets/new"><button>New Ticket</button></a>
+    </section>
+    <br><br>
+    <h2>Add Destinations</h2>
+    <form id="add-destination-form" method="POST"
+    action="/flights/<%=flight._id%>/destinations">
+        <label>Arrival:</label>
+        <select name="airport">
+            <option value="AUS">AUS</option>
+            <option value="SEA">SEA</option>
+            <option value="SAN">SAN</option>
+            <option value="DAL">DAL</option>
+            <option value="LAX">LAX</option>
+        </select>
+        <label>Arrival Time:</label>
+        <input type="datetime-local" name="arrival">
+        <input type="submit" value="Add Destination">
+    </form>
+</body>
+</html>
