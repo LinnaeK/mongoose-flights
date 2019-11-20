@@ -1,17 +1,30 @@
 <%- include('../partials/header') %>
     <form id="new-form" action="/flights" method="POST">
-        <label>Airline:</label>
-        <input type="text" name = "airline">
-        <label>FlightNo:</label>
-        <input type="text" name="flightNo">
-        <label>Departure Time:</label>
-        <input type="datetime-local" name="departs">
-        <select name="airport">
-            <option value="AUS">AUS</option>
-            <option value="SEA">SEA</option>
-            <option value="SAN">SAN</option>
-            <option value="DAL">DAL</option>
-            <option value="LAX">LAX</option>
-        </select>
-        <input type="submit" value="Add Flight">
+        <div class="form-group">
+            <label>Airline:</label>
+            <input type="text" class= "form-control" name = "airline">
+        </div>
+        <div class ="form-group">
+            <label>FlightNo:</label>
+            <input type="text" class= "form-control" name="flightNo">
+        </div>
+        <div class ="form-group">
+            <label>Departure Time:</label>
+            <input type="datetime-local" class= "form-control" name="departs">
+        </div>
+        <div class ="form-group">
+            <label>Airport:</label>
+            <select name="airport">
+                <option value="AUS">AUS</option>
+                <option value="SEA">SEA</option>
+                <option value="SAN">SAN</option>
+                <option value="DAL">DAL</option>
+                <option value="LAX">LAX</option>
+            </select>
+        </div>
+        <div class ="form-group">
+             <!-- <button class="btn btn-info"> -->
+            <input type="submit" value = "Add Flight">Add Flight</input>
+        </div>
+    </form>
 <%- include('../partials/footer') %>

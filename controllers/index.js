@@ -11,9 +11,9 @@ function index(req, res, next) {
         flights.arrival = moment(flights.arrival)
         console.log(flights)
         res.render('index', {
+            moment: moment,
             title: 'Flights', 
             flights,
-            moment: moment,
         })
     })
   }
