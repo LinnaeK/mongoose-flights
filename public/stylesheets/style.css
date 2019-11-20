@@ -1,8 +1,27 @@
-body {
+/* body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+} */
 
 a {
   color: #00B7FF;
+}
+
+h1{
+  text-align: center;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.table {
+  margin: 0 auto;
+  width: 80%;
+}
+
+#addFlight{
+  margin: 3vh
 }

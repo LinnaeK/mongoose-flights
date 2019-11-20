@@ -1,25 +1,27 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
+<%- include('partials/header') %>
     <% if (flights){%>
-    <table>
-      <% flights.forEach(function(f) { %>
-        <tr>
-          <td><%=f.airline%></td>
-          <td><%=f.flightNo%></td>
-          <td><%=f.departs%></td>
-          <td><a href="/flights/<%=f._id%>">DETAILS</a></td>
-        </tr>
-      <%})%>
-    </table>
+    <div class = "table-responsive">
+      <table id = "allFlights" class = "table table-striped">
+        <thead>
+          <tr>
+            <th scope ="col">Airline</th>
+            <th scope ="col">FlightNo</th>
+            <th scope ="col">Departure Time</th>
+            <th scope ="col">Info</th>
+          </tr>
+        </thead>
+        <% flights.forEach(function(f) { %>
+          <tr>
+            <td><%=f.airline%></td>
+            <td><%=f.flightNo%></td>
+            <td><%=moment(f.departs).format('MMMM Do YYYY, h:mm:ss a')%></td>
+            <td><a href="/flights/<%=f._id%>"><button type="button" class="btn btn-secondary btn-sm">DETAILS</button></a></td>
+          </tr>
+        <%})%>
+      </table>
+    </div>
     <%}else{%>
       <h5>No Flight Information Yet</h5>
       <%}%>
-      <a href="flights/new"><button>Add Flight</button></a>
-  </body>
-</html>
+      <a href="flights/new"><button id = "addFlight" type="button" class="btn btn-info">Add Flight</button></a>
+<%- include('partials/footer') %>

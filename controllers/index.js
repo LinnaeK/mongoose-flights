@@ -1,4 +1,5 @@
 var Flights = require('../models/flight')
+var moment = require('moment')
 
 module.exports = {
     index,
@@ -7,7 +8,12 @@ module.exports = {
 function index(req, res, next) {
     console.log(Flights)
     Flights.find({}, function(err, flights){
+        flights.arrival = moment(flights.arrival)
         console.log(flights)
-        res.render('index', {title: 'Flights', flights})
+        res.render('index', {
+            title: 'Flights', 
+            flights,
+            moment: moment,
+        })
     })
   }
